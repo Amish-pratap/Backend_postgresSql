@@ -1,6 +1,8 @@
 import "reflect-metadata";
 import express from "express";
-import { DataSource } from "typeorm";
+const SECRET_KEY = process.env.JWT_SECRET_KEY as string;
+import routes from "./routes/auth";
+import { AppDataSource } from "./database";
 
 const app = express();
 app.use(express.json());
@@ -10,14 +12,7 @@ app.get("/", (req, res) => {
   res.send("hello from express");
 });
 
-const AppDataSource = new DataSource({
-  type: "postgres",
-  host: "localhost",
-  port: 5432,
-  username: "amish",
-  password: "1361",
-  database: "users_db",
-});
+app.use("/api", routes);
 
 AppDataSource.initialize()
   .then(() => {
