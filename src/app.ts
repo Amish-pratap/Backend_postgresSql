@@ -1,7 +1,8 @@
 import "reflect-metadata";
 import express from "express";
-const SECRET_KEY = process.env.JWT_SECRET_KEY as string;
-import routes from "./routes/auth";
+
+import userRoute from "./routes/auth";
+import productRoute from "./routes/product";
 import { AppDataSource } from "./database";
 
 const app = express();
@@ -12,7 +13,8 @@ app.get("/", (req, res) => {
   res.send("hello from express");
 });
 
-app.use("/api", routes);
+app.use("/api", userRoute);
+app.use("/api", productRoute);
 
 AppDataSource.initialize()
   .then(() => {
