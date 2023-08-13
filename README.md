@@ -15,4 +15,4 @@ Authentication Middleware: To ensure data integrity and user privacy, we've inte
 Scalable Backend: Powered by PostgreSQL and Express.js, our backend is designed for scalability, ensuring smooth handling of requests even as the application grows. This solid foundation allows us to focus on expanding features without worrying about infrastructure limitations.
 
 
-This API was developed as an assessment for an internship.
+## This API was developed as an assessment for an internship.
